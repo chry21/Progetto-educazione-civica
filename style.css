@@ -8,26 +8,30 @@
 }
 
 body {
-    background-color: rgb(244, 244, 244);
-    height: 2000px;
+    background-color: #efefef;
+    height: 5000px;
 }
 
+/*NAVBAR*/
 nav {
     width: 100%;
     height: 65px;
     text-align: center;
-    background-color: rgb(244, 244, 244);
+    background-color: rgb(119, 16, 16);
 }
 
 nav #logo {
-    position: absolute;
+    display: block;
     width: 100px;
     height: 65px;
-    left: 40px;
+    float: left;
 }
 
 nav ul {
     display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    flex-grow: 1;
     font-size: 25px;
     justify-content: center;
     align-items: center;
@@ -39,51 +43,62 @@ nav ul a {
     display: inline-block;
     padding: 18px 25px;
     text-decoration: none;
-    color: black;
+    color: #efefef;
     font-weight: bold;
 }
 
 nav ul a:hover {  
-    background-color: rgb(217, 210, 210);
+    background-color: rgba(236, 236, 236, 0.065);
 }
 
+/*HEADER*/
 .header {
     position: relative;
 }
 
-.title-div {
+.div-titolo {
     position: absolute;
-    width: 800px;
-    height: 400px;
+    float: left;
+    width: auto;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.742);
-    top: 120px;
-    left: 50px;  
+    left: 40px;
+    top: 200px;
+    padding: 50px;
 }
 
-.title-div #title {
-    padding-top: 80px;
-    padding-left: 20px;
+#titolo {
     color: white;
     font-size: 100px;
     font-weight: bold;
+    min-width: 700px;
+
 }
 
 #header-img {
     width: 100%;
-    height: 600px;
-    box-shadow: 0 0 8px 3px gray;
+    height: 600px;   
 }
 
+/*INTRODUZIONE*/
+.div-introduzione {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(119, 16, 16);
+    box-shadow: 0 0 10px rgb(125, 121, 121);
+}
 
 #aforisma {
-    margin-top: 30px;
+    padding-top: 20px;
     text-align: center;
-    text-justify:distribute;
     font-size: 25px;
     font-family: 'Domine', serif;
+    font-weight: 100;
+    color: #f6f6f6;
 }
 
-.storia {
+/*STORIA*/
+.capitolo {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
@@ -91,39 +106,118 @@ nav ul a:hover {
     gap: 30px;
 }
 
-.storia h1 {
+.titolo-capitolo {
     font-size: 38px;
-    text-decoration: underline;
 }
 
-.box {
-    display: flex;
-    padding-right: 40px;
-    width: 1400px;
-    box-shadow: 0 0 10px rgb(125, 121, 121);
-    background-color: white;
-}
-
-.box .text {
+.text {
     display: flex;
     flex-direction: column;
     padding-top: 20px;
     padding-left: 40px;
+    padding-right: 40px;
+    font-size: 19px;
 }
 
-.box h2 {
-    margin-top: 10px;
+p {
+    margin-top: 9px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.box-piccolo {
+    display: flex;
+    width: 1400px;
+    height: 420px;
+    box-shadow: 0 0 10px rgb(125, 121, 121);
+    background-color: white;
+}
+
+.box-piccolo h2 {
     font-size: 28px;
 }
 
-.box .img {
+.box-piccolo .img {
     width: 450px;
     height: 400px;
 }
 
-.box p {
-    margin-top: 9px;
-    font-size: 19px;
-    text-align: justify;
-    text-justify: inter-word;
+
+.box-piccolo.destra {
+    padding-right: 0;
+}
+
+/*NORMATIVA*/
+/*grid-normativa*/
+
+.grid-normativa {
+    display: grid;
+    grid-template-rows: auto 580px;
+    grid-template-columns: 600px 600px;
+    row-gap: 40px;
+    column-gap: 30px;
+}
+
+.box-grande {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgb(125, 121, 121);
+    background-color: white;  
+    padding-bottom: 50px;
+}
+
+.box-grande img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 350px;
+}
+
+.box-piccolo-verticale {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgb(125, 121, 121);
+    background-color: white;
+}
+
+.box-piccolo-verticale img {
+    height: 250px;
+}
+
+.box-piccolo-verticale p {
+    padding-top: 20px;
+}
+
+/*AGENDA 2030*/
+.grid-agenda {
+    display: grid;
+    grid-template-columns: 900px 400px;
+    grid-template-rows: repeat(3, 400px);
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.grid-agenda div {
+    box-shadow: 0 0 10px rgb(125, 121, 121);
+    background-color: white;  
+}
+
+.box-medio-agenda iframe{
+    width: 200px;
+    height: 200px;
+}
+
+.box-grande-agenda {
+    grid-column: span 2;
+}
+
+
+
+
+@media only screen and (max-width: 1500px) {
+
+    #aforisma {
+        font-size: 22px;    
+    }
 }
