@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Domine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
 
 * {
     margin: 0;
@@ -9,11 +10,11 @@
 
 body {
     background-color: #efefef;
-    height: 5000px;
 }
 
 /*NAVBAR*/
 nav {
+    position: relative;
     width: 100%;
     height: 65px;
     text-align: center;
@@ -21,7 +22,6 @@ nav {
 }
 
 nav #logo {
-    display: block;
     width: 100px;
     height: 65px;
     float: left;
@@ -29,9 +29,7 @@ nav #logo {
 
 nav ul {
     display: flex;
-    flex-shrink: 0;
     flex-wrap: wrap;
-    flex-grow: 1;
     font-size: 25px;
     justify-content: center;
     align-items: center;
@@ -50,6 +48,67 @@ nav ul a {
 nav ul a:hover {  
     background-color: rgba(236, 236, 236, 0.065);
 }
+
+.switch {
+    position: absolute;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    z-index: 1;
+    right: 100px;
+    bottom: 15px;
+  }
+
+  /* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #e02b2b;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 /*HEADER*/
 .header {
@@ -80,6 +139,13 @@ nav ul a:hover {
     height: 600px;   
 }
 
+/*CONTENT*/
+p {
+    text-align: justify;
+    text-justify: inter-word;
+    padding-top: 10px;
+}
+
 /*INTRODUZIONE*/
 .div-introduzione {
     width: 100%;
@@ -89,7 +155,7 @@ nav ul a:hover {
 }
 
 #aforisma {
-    padding-top: 20px;
+    padding-top: 25px;
     text-align: center;
     font-size: 25px;
     font-family: 'Domine', serif;
@@ -113,19 +179,14 @@ nav ul a:hover {
 .text {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    padding-top: 30px;
     padding-left: 40px;
     padding-right: 40px;
-    font-size: 19px;
-}
-
-p {
-    margin-top: 9px;
-    text-align: justify;
-    text-justify: inter-word;
+    font-size: 18px;
 }
 
 .box-piccolo {
+    position: relative;
     display: flex;
     width: 1400px;
     height: 420px;
@@ -142,23 +203,37 @@ p {
     height: 400px;
 }
 
-
-.box-piccolo.destra {
-    padding-right: 0;
+.torna-su {
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    color: rgb(223, 13, 13);
+    position: absolute;
+    bottom: 25px;
+    text-decoration: none;
 }
+
+.torna-su:hover {
+    text-decoration: underline 2px;
+}
+
+.box-piccolo.sinistra .torna-su {
+    right: 40px;
+}
+
 
 /*NORMATIVA*/
 /*grid-normativa*/
 
 .grid-normativa {
     display: grid;
-    grid-template-rows: auto 580px;
+    grid-template-rows: auto 450px;
     grid-template-columns: 600px 600px;
     row-gap: 40px;
     column-gap: 30px;
 }
 
 .box-grande {
+    position: relative;
     grid-column: span 2;
     display: flex;
     flex-direction: column;
@@ -171,10 +246,16 @@ p {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height: 350px;
+    height: 300px;
+    box-shadow: 0 0 10px rgb(125, 121, 121);
+}
+
+.box-grande .torna-su {
+    right: 45px;
 }
 
 .box-piccolo-verticale {
+    position: relative;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgb(125, 121, 121);
@@ -182,18 +263,24 @@ p {
 }
 
 .box-piccolo-verticale img {
-    height: 250px;
+    height: 200px;
+    box-shadow: 0 0 10px rgb(125, 121, 121);
 }
 
 .box-piccolo-verticale p {
-    padding-top: 20px;
+    padding-top: 10px;
+}
+
+.box-piccolo-verticale.destra .torna-su{
+    right: 40px;
+    bottom: 30px;
 }
 
 /*AGENDA 2030*/
 .grid-agenda {
     display: grid;
-    grid-template-columns: 900px 400px;
-    grid-template-rows: repeat(3, 400px);
+    grid-template-columns: 900px auto;
+    grid-template-rows: repeat(3, 300px);
     row-gap: 20px;
     column-gap: 20px;
 }
@@ -203,21 +290,67 @@ p {
     background-color: white;  
 }
 
+.box-medio-agenda .flex-agenda {
+    display: flex;
+}
+
+.box-medio-agenda .text {
+    box-shadow: none;
+}
+
 .box-medio-agenda iframe{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 }
 
 .box-grande-agenda {
     grid-column: span 2;
 }
 
+.box-piccolo-agenda iframe {
+    width: 100%;
+    height: 100%;
+}
 
+/*SITOGRAFIA*/
+.sitografia {
+    width: 100%;
+    height: 400px;
+    background-color: rgb(119, 16, 16);
+}
+
+.sitografia .titolo-capitolo {
+    text-align: center;
+    margin-top: 40px;
+    color: #efefef;
+}
 
 
 @media only screen and (max-width: 1500px) {
 
     #aforisma {
-        font-size: 22px;    
+        font-size: 20px;    
+    }
+
+    .box-piccolo {
+        width: 1100px;
+    }
+
+    .torna-su {
+        font-size: 15px;
+    }
+    
+    .text {
+        font-size: 15px;
+    }
+
+    .grid-normativa {
+        grid-template-columns: 500px 500px;
+        grid-template-rows: auto 400px;
+    }
+    
+    .grid-agenda {
+        grid-template-columns: 800px 350px;
+        grid-template-rows: repeat(3, 300px);
     }
 }
